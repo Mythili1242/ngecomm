@@ -1,0 +1,51 @@
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <div fxFlex="80">
+<h4>Create product</h4>
+
+  
+<form [formGroup]="productForm" (submit)="onSubmit($event)">
+  <mat-form-field class="example-full-width" fxFlexFill>
+    <mat-label>Title</mat-label>
+    <input type="text" matInput formControlName="title" placeholder="Enter title here">
+    <mat-error *ngIf="productForm.get('title')?.errors?.['required']">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="productForm.get('title')?.errors?.['minlength']">
+      min 3 chars required required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" fxFlexFill>
+    <mat-label>Description</mat-label>
+    <input type="text" matInput formControlName="description" placeholder="Enter description">
+    <mat-error *ngIf="productForm.get('description')?.errors?.['required']">
+      Description is required
+    </mat-error> 
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" fxFlexFill>
+    <mat-label>Price</mat-label>
+    <input type="text" appOnlyNumbers matInput formControlName="price" placeholder="Enter price">
+    <mat-error *ngIf="productForm.get('price')?.errors?.['required']">
+      price is required
+    </mat-error> 
+  </mat-form-field>
+                      
+  <mat-form-field class="example-full-width" fxFlexFill>
+    <mat-label>Image</mat-label>
+    <input type="text" matInput formControlName="image" placeholder="Enter title here">
+    <mat-error *ngIf="productForm.get('image')?.errors?.['required']">
+      image is required
+    </mat-error> 
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="end center" fxFlexFill>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
+
+
+
+
+</div>
+ 
+</div>
